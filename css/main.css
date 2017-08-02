@@ -100,10 +100,15 @@ ul.posts li {
 .irisText {
     word-wrap:break-word;
     margin-top:87px;
+    margin-left: 545px;
 }
 .panel {
     border:1px;
 }
 #harambePanel {
     background-color:rgb(175, 127, 55);
+}
+.harambeText {
+    margin-top: 87px;
+    margin-left: 545px;
 }

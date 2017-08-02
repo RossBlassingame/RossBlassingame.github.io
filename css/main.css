@@ -86,6 +86,8 @@ ul.posts li {
 #irisPanel {
     background-color: rgb(56, 50, 121);
     color: rgba(240,240,240,.8);
+    min-height:330px;
+    max-height:330px;
 }
 #irisPic {
     height:300px;

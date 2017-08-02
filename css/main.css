@@ -95,6 +95,9 @@ ul.posts li {
     box-shadow:7px 7px 7px rgba(40,40,40,.5);
     float:left;
 }
+.irisText {
+    word-wrap:break-word;
+}
 .panel {
     border:0px;
 }

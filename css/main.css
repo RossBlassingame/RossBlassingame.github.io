@@ -84,7 +84,7 @@ ul.posts li {
     text-align:center;
 }
 #irisPanel {
-    background-color: rgb(56, 50, 121);
+    background-color: rgb(175, 148, 55);
     color: rgba(240,240,240,.8);
     min-height:330px;
     max-height:330px;
@@ -100,5 +100,8 @@ ul.posts li {
     margin-top:87px;
 }
 .panel {
-    border:0px;
+    border:1px;
+}
+#harambePanel {
+    background-color:rgb(175, 127, 55);
 }

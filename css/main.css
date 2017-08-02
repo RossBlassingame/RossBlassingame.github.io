@@ -6,6 +6,7 @@ body {
     background-color: rgb(42, 76, 114);
     margin: auto;
     width: 100%;
+    font-family: myFirstFont;
 }
 nav ul, footer ul {
     padding: 0px;
@@ -44,6 +45,7 @@ p {
     font-size: 2em;
     line-height: 1.4em;
     color: rgba(240,240,240,.9);
+    font-family: myFirstFont;
 }
 footer {
     right: 0;
@@ -66,7 +68,7 @@ ul.posts li {
 .header {
     text-align: center;
     font-size: 4em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    font-family: myFirstFont;
 }
 .container {
     width: 100%;

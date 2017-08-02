@@ -116,6 +116,9 @@ ul.posts li {
 #harambePanel {
     background-color:rgb(175, 127, 55);
 }
+#irisPanel:hover, #harambePanel:hover {
+    opacity: 0.8;
+}
 .harambeText {
     word-wrap:break-word;
     margin-top: 5%;

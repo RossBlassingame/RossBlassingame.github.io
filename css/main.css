@@ -101,6 +101,8 @@ ul.posts li {
     word-wrap:break-word;
     margin-top:87px;
     margin-left: 545px;
+    background-color: rgba(0,0,0,.01);
+    box-shadow: 5px 5px 5px rgba(0,0,0,.3);
 }
 .panel {
     border:1px;
@@ -109,6 +111,9 @@ ul.posts li {
     background-color:rgb(175, 127, 55);
 }
 .harambeText {
+    word-wrap:break-word;
     margin-top: 87px;
     margin-left: 545px;
+    background-color: rgba(0,0,0,.01);
+    box-shadow: 5px 5px 5px rgba(0,0,0,.3);
 }

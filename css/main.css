@@ -128,4 +128,5 @@ ul.posts li {
     float: left;
     margin-right: 1%;
     box-shadow: 5px 5px 5px rgba(0,0,0,.4);
+    border: 1px solid rgba(40,40,40,.8);
 }

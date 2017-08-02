@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ page.title }}</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <!-- link to main stylesheet -->
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  
+</head>
+<body>
+  
+  <nav class="navbar navbar-default">
+    <div class="containerNavBar">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span> 
+          <span class="icon-bar"></span> 
+        </button>
+        <a class="navbar-brand" href="/">Ross Blassingame</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/resume">Resume</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  
+  <div class="container">
+    
+    {{ content }}
+    
+  </div><!-- /.container -->
+  <footer>
+    <ul>
+      <li><a href="mailto:Ross.Blassingame@Colorado.EDU"><img src = "https://cdn1.iconfinder.com/data/icons/simple-icons/2048/email-2048-black.png" width = "42" height = "42"></a></li>
+      <li><a href="https://github.com/RossBlassingame"><img src = "https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png" width = "42" height = "42"></a></li>
+      <li><a href="https://www.linkedin.com/in/rossblassingame/"><img src = "https://cdn1.iconfinder.com/data/icons/simple-icons/4096/linkedin-4096-black.png" width = "42" height = "42"></a></li>
+    </ul>
+  </footer>
+</body>
+</html>

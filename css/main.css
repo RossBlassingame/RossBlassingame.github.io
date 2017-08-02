@@ -89,7 +89,7 @@ ul.posts li {
     min-height:330px;
     max-height:330px;
 }
-#irisPic {
+#irisPic, #harambePic {
     height:300px;
     border: 1px solid rgba(40,40,40,.8);
     box-shadow:7px 7px 7px rgba(40,40,40,.5);

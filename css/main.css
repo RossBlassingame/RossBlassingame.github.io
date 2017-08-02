@@ -75,6 +75,7 @@ ul.posts li {
     height:auto;
     width: 30%;
     border: 1px solid rgba(40,40,40,.8);
+    box-shadow:3px 3px 3px rgba(40,40,40,.5);
 }
 .homeText {
     word-wrap:break-word;
@@ -88,7 +89,8 @@ ul.posts li {
 }
 #irisPic {
     height:300px;
-    box-shadow:7px 7px 7px rgba(40,40,40,.8);
+    border: 1px solid rgba(40,40,40,.8);
+    box-shadow:7px 7px 7px rgba(40,40,40,.5);
 }
 .panel {
     border:0px;

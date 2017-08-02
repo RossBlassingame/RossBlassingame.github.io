@@ -99,7 +99,7 @@ ul.posts li {
 }
 .irisText {
     word-wrap:break-word;
-    margin-top:87px;
+    margin-top:5%;
     margin-left: 545px;
     background-color: rgba(0,0,0,.01);
     box-shadow: 5px 5px 5px rgba(0,0,0,.3);
@@ -112,7 +112,7 @@ ul.posts li {
 }
 .harambeText {
     word-wrap:break-word;
-    margin-top: 70px;
+    margin-top: 5%;
     margin-left: 545px;
     background-color: rgba(0,0,0,.01);
     box-shadow: 5px 5px 5px rgba(0,0,0,.3);

@@ -87,6 +87,7 @@ ul.posts li {
 }
 #irisPic {
     height:300px;
+    box-shadow:7px 7px 7px rgb(40,40,40);
 }
 .panel {
     border:0px;

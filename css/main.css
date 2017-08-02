@@ -125,8 +125,8 @@ ul.posts li {
 }
 #giraffePic {
     max-height: 750px;
-    float: left;
-    margin-right: 1%;
+    float: right;
+    margin-left: 1%;
     box-shadow: 5px 5px 5px rgba(0,0,0,.4);
     border: 1px solid rgba(40,40,40,.8);
 }

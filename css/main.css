@@ -102,7 +102,7 @@ ul.posts li {
     margin-top:5%;
     margin-left: 545px;
     background-color: rgba(0,0,0,.01);
-    box-shadow: 5px 5px 5px rgba(0,0,0,.3);
+    box-shadow: 5px 5px 5px rgba(0,0,0,.1);
 }
 .panel {
     border:1px;
@@ -115,5 +115,5 @@ ul.posts li {
     margin-top: 5%;
     margin-left: 545px;
     background-color: rgba(0,0,0,.01);
-    box-shadow: 5px 5px 5px rgba(0,0,0,.3);
+    box-shadow: 5px 5px 5px rgba(0,0,0,.1);
 }

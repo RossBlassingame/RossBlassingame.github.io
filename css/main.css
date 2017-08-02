@@ -123,3 +123,9 @@ ul.posts li {
     background-color: rgba(0,0,0,.01);
     box-shadow: 5px 5px 5px rgba(0,0,0,.1);
 }
+#giraffePic {
+    max-height: 750px;
+    float: left;
+    margin-right: 1%;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.4);
+}

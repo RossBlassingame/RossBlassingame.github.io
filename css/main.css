@@ -91,6 +91,7 @@ ul.posts li {
     height:300px;
     border: 1px solid rgba(40,40,40,.8);
     box-shadow:7px 7px 7px rgba(40,40,40,.5);
+    float:left;
 }
 .panel {
     border:0px;

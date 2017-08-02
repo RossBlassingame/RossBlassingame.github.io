@@ -4,28 +4,51 @@ title: Ross Blassingame | About
 ---
 <div class="aboutBlurb">
   <img src="https://github.com/RossBlassingame/RossBlassingame.github.io/blob/master/Resources/giraffe.PNG?raw=true" id="giraffePic" class="img-rounded img-responsive" alt="Pic of Ross + giraffe">
-	<div class="homeText">
-		<p class="header">About</p>
-		<p>I'm 21 years old and currently a senior studying Computer Science at the University of Colorado - Boulder. </p>
-		<br>
-		<p>I love the outdoors and being active, so Boulder is a great place for me! When I'm not in the classroom or at work, you'll most likely be able to find me either skiing in <a href="http://www.breckenridge.com/">Breck</a>, hiking a fourteener, or in the gym.</p>
-		
-		
-		
-		<!-- Trigger the Modal -->
-		<img id="skiPic" src="https://github.com/RossBlassingame/RossBlassingame.github.io/blob/master/Resources/skiing.JPG?raw=true" alt="Ross skiing" width="300" height="225">
-		<!-- The Modal -->
-		<div id="myModal" class="modal">
- 			<!-- The Close Button -->
-  			<span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
- 		 	<!-- Modal Content (The Image) -->
-  			<img class="modal-content" id="img01">
-  			<!-- Modal Caption (Image Text) -->
-  			<div id="caption"></div>
-		</div>
-		
-		
-		
-		
-	</div>
-</div><!-- /.blurb -->
+  <div class="homeText">
+    <p class="header">About</p>
+    <p>I'm 21 years old and currently a senior studying Computer Science at the University of Colorado - Boulder. </p>
+    <br>
+    <p>I love the outdoors and being active, so Boulder is a great place for me! When I'm not in the classroom or at work, you'll most likely be able to find me either skiing in <a href="http://www.breckenridge.com/">Breck</a>, hiking a fourteener, or in the gym.</p>
+    
+    
+    
+    <!-- Trigger the Modal -->
+    <img id="skiPic" src="https://github.com/RossBlassingame/RossBlassingame.github.io/blob/master/Resources/skiing.JPG?raw=true" alt="Ross skiing" width="300" height="225">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- The Close Button -->
+      <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+      <!-- Modal Content (The Image) -->
+      <img class="modal-content" id="img01">
+      <!-- Modal Caption (Image Text) -->
+      <div id="caption"></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  
+  
+  // Get the modal
+  var modal = document.getElementById('myModal');
+  
+  // Get the image and insert it inside the modal - use its "alt" text as a caption
+  var img = document.getElementById('myImg');
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
+  img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+  
+  // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the user clicks on <span> (x), close the modal
+      span.onclick = function() { 
+        modal.style.display = "none";
+      }
+    </div><!-- /.blurb -->

@@ -202,7 +202,7 @@ ul.posts li {
 
 /* The Close Button */
 .close {
-    position: absolute;
+    position: fixed;
     top: 0px;
     right: 0px;
     color: #f1f1f1;

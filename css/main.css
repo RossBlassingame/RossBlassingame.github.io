@@ -204,7 +204,7 @@ ul.posts li {
 .close {
     position: fixed;
     top: 0px;
-    right: 0px;
+    right: 15px;
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;

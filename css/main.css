@@ -57,6 +57,7 @@ footer {
     text-align: center;
     width: 100%;
     margin-top: 1%;
+    position:fixed;
 }
 ul.posts { 
     margin: 20px auto 40px; 

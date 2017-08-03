@@ -2,11 +2,18 @@
     font-family: myFirstFont;
     src: url(SansationLight.woff);
 }
+html, .container {
+    margin:0;
+    padding:0; 
+    height:100%
+}
 body {
     background-color: rgb(42, 76, 114);
     margin: auto;
     width: 100%;
     font-family: myFirstFont;
+    min-height:100%;
+    position:relative;
 }
 nav ul, footer ul {
     padding: 0px;
@@ -57,6 +64,8 @@ footer {
     text-align: center;
     width: 100%;
     margin-top: 1%;
+    position:absolute;
+    height:50px;
 }
 ul.posts { 
     margin: 20px auto 40px; 
@@ -72,6 +81,8 @@ ul.posts li {
 }
 .container {
     width: 100%;
+    padding:10px;
+    padding-bottom:50px;
 }
 #homePic {
     float:left;

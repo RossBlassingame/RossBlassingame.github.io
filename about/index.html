@@ -39,6 +39,24 @@ title: Ross Blassingame | About
       <div id="caption"></div>
     </div>
     
+    
+    
+    <!-- Trigger the Modal -->
+    <img id="runningPic" src="https://github.com/RossBlassingame/RossBlassingame.github.io/blob/master/Resources/running.png?raw=true" alt="Running in the <a href="http://www.bolderboulder.com/">BolderBoulder</a>." width="176" height="300">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- The Close Button -->
+      <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+      <!-- Modal Content (The Image) -->
+      <img class="modal-content" id="img01">
+      <!-- Modal Caption (Image Text) -->
+      <div id="caption"></div>
+    </div>
+    
+    
+    
+    
+    
   </div>
   
   <script>
@@ -48,6 +66,7 @@ title: Ross Blassingame | About
     // Get the image and insert it inside the modal - use its "alt" text as a caption
     var img = document.getElementById('skiPic');
     var img1 = document.getElementById('giraffePic');
+    var img2 = document.getElementById('runningPic');
     var modalImg = document.getElementById("img01");
     var captionText = document.getElementById("caption");
     img.onclick = function(){
@@ -56,6 +75,11 @@ title: Ross Blassingame | About
       captionText.innerHTML = this.alt;
     }
     img1.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+    }
+    img2.onclick = function(){
       modal.style.display = "block";
       modalImg.src = this.src;
       captionText.innerHTML = this.alt;

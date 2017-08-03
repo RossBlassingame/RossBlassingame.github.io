@@ -133,9 +133,7 @@ ul.posts li {
     box-shadow: 5px 5px 5px rgba(0,0,0,.4);
     border: 1px solid rgba(40,40,40,.8);
 }
-
-
-
+#giraffePic:hover {opacity: 0.7;}
 
 /* Style the Image Used to Trigger the Modal */
 #skiPic {
@@ -143,9 +141,17 @@ ul.posts li {
     cursor: pointer;
     transition: 0.3s;
     box-shadow: 5px 5px 5px rgba(0,0,0,.4);
+    margin-left:2%;
 }
 
 #skiPic:hover {opacity: 0.7;}
+
+#runningPic {
+    margin-left: 7%;
+    margin-top: 1%;
+}
+
+#runningPic:hover {opacity: 0.7;}
 
 /* The Modal (background) */
 .modal {

@@ -139,9 +139,10 @@ ul.posts li {
 
 /* Style the Image Used to Trigger the Modal */
 #skiPic {
-    border-radius: 5px;
+    border: 1px solid rgba(40,40,40,.8);
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.4);
 }
 
 #skiPic:hover {opacity: 0.7;}

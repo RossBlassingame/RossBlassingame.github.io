@@ -2,6 +2,11 @@
     font-family: myFirstFont;
     src: url(SansationLight.woff);
 }
+.h1, h1, .h2, h2 {
+    color: white;
+    text-align: center;
+}
+
 html, .container {
     margin:0;
     padding:0; 

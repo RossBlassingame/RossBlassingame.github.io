@@ -6,6 +6,9 @@
     color: rgba(255,255,255,.8);
     text-align: center;
 }
+.h1, h1 {
+    text-size:48px;
+}
 
 html, .container {
     margin:0;

@@ -442,9 +442,9 @@ a:focus, a:hover, a:active {
   margin-left: 0;
   text-align: center;
   color: white;
-  border: 7px solid #e9ecef;
+  border: 1px solid #000000;
   border-radius: 100%;
-  background-color: #fed136;
+  background-color: #7d1d1d;
 }
 
 .timeline > li .timeline-image h4 {

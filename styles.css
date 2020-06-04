@@ -1,0 +1,20 @@
+li, li a {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+li:hover {
+    background-color: rgb(233, 233, 233);
+}
+
+li a.active {
+    background-color: rgb(221, 221, 221);
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+}

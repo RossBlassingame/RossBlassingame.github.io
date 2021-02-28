@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
- 
+
 <head>
     <title>ross blassingame</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,11 +9,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
- 
+
 <body>
- 
+
     <div class="container">
- 
+
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -23,67 +23,97 @@
                     <li><a class="tablinks" onclick="openTab(event, 'home')" id="defaultOpen">home</a></li>
                     <li><a class="tablinks" onclick="openTab(event, 'aboutMe')">about me</a></li>
                     <li><a class="tablinks" onclick="openTab(event, 'projects')">projects</a></li>
+                    <li><a class="tablinks" onclick="openTab(event, 'resume')">resume</a></li>
                 </ul>
             </div>
         </nav>
- 
+
         <div id="home" class="tabcontent">
-            <h3 style="font-weight: 400;">Hi, I'm Ross.</h3>
+            <h3 style="font-weight: 400;">home</h3>
+            <br>
+            <p>
+                Hi, I'm Ross.
+            </p>
             <br>
             <p>
                 I'm a Computer Science graduate from the University of Colorado - Boulder. I'm currently
                 working at Charles Schwab on their roboadviser: <i>Schwab Intelligent Portfolios</i>.
-                Most of my time at the moment is spent working on the UI, which uses <code>Angular 7</code>, or
-                the backend code, which uses <code>.NET Core 2.1</code>, amongst other things.
+                Most of my time at the moment is spent working on the UI, which uses <code>Angular 5-9</code>, or
+                the backend code, which uses <code>.NET Core</code>, amongst other things.
             </p>
             <br>
             <p>Feel free to contact me for any reason and I'll respond ASAP.</p>
-            <p><span class="glyphicon glyphicon-envelope"></span> mail@rossblassingame.com</p>
+            <br>
+            <p><span class="glyphicon glyphicon-envelope"></span> <a
+                    href="mailto:mail@rossblassingame.com">mail@rossblassingame.com</a></p>
         </div>
- 
+
         <div id="aboutMe" class="tabcontent">
             <h3 style="font-weight: 400;">about me</h3>
             <br>
             <p>
                 In Summer 2017, I had an internship with Charles Schwab on the Compliance and Legal Services team.
-                A year later I graduated and joined the same team, and did some interesting work on various 
+                A year later I graduated and joined the same team, and did some interesting work on various
                 Schwab-internal apps. One of my favorite projects on that team was rewriting a legacy app, originally
-                built using <code>.NET Framework</code>, in newer technologies such as <code>Angular 5</code> and
-                <code>.NET Core 2.1</code>.
+                built using <code>.NET Framework</code>, in newer technologies such as <code>Angular 2+</code> and
+                <code>.NET Core 2.1</code>. I also built out the whole CI/CD pipeline, which used Bamboo to deploy it
+                to our cloud environment, PCF.
             </p>
             <br>
             <p>
-                On my current team, most of my time at the moment is spent working in the UI using <code>Angular 7</code>,
-                or working on the backend using <code>.NET Core 2.1</code> (or the <code>.NET Framework</code> for our
-                more legacy stuff). I really enjoy UI/UX work; one of my favorite courses in college was an accessibility
-                course, which taught me how to design software accessible to all people.
-           </p>
+                On my current team, the <i>Intelligent Portfolios</i> team, most of my time at the moment is spent
+                working in the UI using <code>Angular 7-9</code>, or working on the backend using
+                <code>.NET Core 2.1</code> (or the <code>.NET Framework</code> for our more legacy stuff). I really
+                enjoy UI/UX work; one of my favorite courses in college was an accessibility course, which taught
+                me how to design software accessible to all people.
+            </p>
             <br>
             <p>
-                When I'm not working, you can sometimes find me reading. Currently, I'm reading "How to be an Anti-Racist",
+                When I'm not working, you can sometimes find me reading. Currently, I'm reading "How to be an
+                Anti-Racist",
                 by Ibram X. Kendi. My last book was "The Great Alone", by Kristin Hannah. If you're looking for a
-                recommendation, you can't go wrong with either - they're both excellent.
+                recommendation, you can't go wrong with either - they're both excellent. Here are some more books I've
+                read recently:
+            <ul>
+                <li>
+                    <a
+                        href="https://www.goodreads.com/book/show/33606119-why-i-m-no-longer-talking-to-white-people-about-race">Why
+                        I'm No Longer Talking to White People About Race</a>
+                </li>
+                <li>
+                    <a href="https://www.goodreads.com/book/show/25663961-how-not-to-die">Why
+                        How Not to Die: Discover the Foods Scientifically Proven to Prevent and Reverse Disease</a>
+                </li>
+            </ul>
             </p>
             <br>
             <p>
                 Another hobby of mine is running. Since the pandemic started, I've been running 25-30 mpw as an outlet.
-                I was planning on doing the 2020 BolderBoulder and Colfax Marathon, but unfortunately both were cancelled.
+                I was planning on doing the 2020 BolderBoulder and Colfax Marathon, but unfortunately both were
+                cancelled.
             </p>
         </div>
- 
+
         <div id="projects" class="tabcontent">
             <h3 style="font-weight: 400;">projects</h3>
             <br>
             <p>
-                This page -- scratch that, this whole website -- is still under construction. Please check back later for
-                updates.
+                This page is under construction. Please check back later for updates.
             </p>
         </div>
- 
+
+        <div id="resume" class="tabcontent">
+            <h3 style="font-weight: 400;">resume</h3>
+            <br>
+            <p>
+                This page is under construction. Please check back later for updates.
+            </p>
+        </div>
+
     </div>
- 
+
     <script src="scripts.js"></script>
- 
+
 </body>
- 
+
 </html>

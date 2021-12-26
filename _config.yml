@@ -1,7 +1,7 @@
 # Site settings
 title: Ross Blassingame
 email: ross.blassingame@colorado.edu
-url: https://github.com/jeromelachaud/freelancer-theme
+url: rossblassingame.com
 description: "Ross Blassingame's personal website."
 keywords: "your keywords, separated by commas"
 skills: "Software Engineer @ Amazon"
@@ -39,15 +39,13 @@ footer:
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
   - title: twitter
-    url: http://twitter.com/jekyllrb
+    url: https://twitter.com/rossblassingame
   - title: facebook
-    url:
+    url: https://www.facebook.com/rblassingame
   - title: stack-overflow
-    url: http://stackoverflow.com/questions/tagged/jekyll
-  - title: bitbucket
-    url: http://bitbucket.org/jekyll
+    url: https://stackoverflow.com/users/4767057/robl
   - title: github
-    url: http://github.com/jekyll
+    url: https://github.com/RossBlassingame
 
 # Postal address (add as many lines as necessary)
 address:

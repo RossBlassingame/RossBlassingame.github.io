@@ -4,8 +4,8 @@ modal-id: 2
 date: 2014-07-17
 img: schwab.png
 alt: image-alt
-project-date: April 2014
-client: Start Bootstrap
-category: Web Development
-description: Use this area of the page to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+project-date: June 2018
+client: Charles Schwab
+category: Software Development
+description: "I started working at Charles Schwab in 2018. I worked on Schwab's robo-adviser: Schwab Intelligent Portfolios using Angular 9+ (Typescript) for the frontend, C# for the backend, and MongoDB for the DB."
 ---

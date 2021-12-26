@@ -6,7 +6,5 @@ date: 2014-07-18
 img: amazon.png
 alt: image-alt
 project-date: October 2021
-client: Amazon
-category: Software Development
 description: I started working at Amazon in October 2021 in the Devices organization. I use C++, Java and Kotlin to build on-device demo software for Amazon's devices.
 ---

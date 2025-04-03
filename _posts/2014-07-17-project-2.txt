@@ -1,0 +1,10 @@
+---
+layout: default
+modal-id: 2
+title: Charles Schwab
+date: 2014-07-17 # Internal date, leave as is unless problematic
+img: schwab.png
+alt: image-alt
+project-date: July 2017 # Start date of entire tenure (Intern)
+description: "Software Engineer (Intern to SDE III) from July 2017 to October 2021. Contributed to the Schwab Intelligent Portfolios platform (AngularJS/Angular, .NET Core) and developed internal full-stack applications and CI/CD pipelines." # Updated description summarizing tenure
+---

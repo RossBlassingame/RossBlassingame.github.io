@@ -1,0 +1,10 @@
+---
+layout: default
+modal-id: 1
+title: Amazon
+date: 2014-07-18 # Internal date, leave as is unless problematic
+img: amazon.png
+alt: image-alt
+project-date: October 2021 # Your start date
+description: "Software Development Engineer since October 2021. Currently designing and building foundational privacy frameworks (PaCT) and cross-platform tooling (Federated Demos) for Amazon's device ecosystem (FireOS, AOSP) using Java, Python, C++, and internal frameworks." # Updated description based on resume
+---

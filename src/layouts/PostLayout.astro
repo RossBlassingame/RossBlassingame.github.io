@@ -1,5 +1,6 @@
 ---
 import Base from './Base.astro';
+import { formatPostDate, isoDate } from '../lib/date';
 
 // Layout used for individual blog post pages. Wraps the rendered MDX
 // in a `prose` block (Tailwind Typography) so headings/lists/code blocks
@@ -10,26 +11,15 @@ export interface Props {
   date: Date;
 }
 const { title, description, date } = Astro.props;
-
-// Format in UTC for the same reason as PostList: avoid timezone drift
-// turning `2026-05-15` into "May 14" when the builder is in a negative-offset
-// zone.
-const fmt = new Intl.DateTimeFormat('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: '2-digit',
-  timeZone: 'UTC',
-});
-const isoDate = date.toISOString().slice(0, 10);
 ---
 <Base title={`${title} — Ross Blassingame`} description={description}>
   <article>
     <header class="mb-8">
       <time
-        datetime={isoDate}
+        datetime={isoDate(date)}
         class="block font-mono text-xs uppercase tracking-wider text-[var(--color-muted)]"
       >
-        {fmt.format(date)}
+        {formatPostDate(date)}
       </time>
       <h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h1>
     </header>

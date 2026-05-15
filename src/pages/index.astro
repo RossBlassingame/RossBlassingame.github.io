@@ -41,13 +41,14 @@ const latestPosts = allPosts
           years={p.years}
           summary={p.summary}
           tags={p.tags}
+          as="h3"
         />
       ))}
     </div>
   </Section>
 
   <Section title="Writing" href="/blog/">
-    <PostList posts={latestPosts} />
+    <PostList posts={latestPosts} as="h3" />
   </Section>
 
   <Section title="Now" href="/now/" linkLabel="full now page">
@@ -57,6 +58,6 @@ const latestPosts = allPosts
   </Section>
 
   <Section title="Elsewhere">
-    <SocialLinks size={20} />
+    <SocialLinks size={20} class="flex" />
   </Section>
 </Base>

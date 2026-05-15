@@ -21,7 +21,7 @@ const { title, href, linkLabel = 'view all' } = Astro.props;
         href={href}
         class="font-mono text-xs uppercase tracking-wider text-[var(--color-muted)] hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] rounded-sm"
       >
-        {linkLabel} →
+        {linkLabel} <span aria-hidden="true">→</span>
       </a>
     )}
   </header>

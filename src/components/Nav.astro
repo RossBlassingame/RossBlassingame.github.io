@@ -2,27 +2,29 @@
 import SocialLinks from './SocialLinks.astro';
 
 // Top-of-page nav. Mono font for a typographic SWE accent.
-// Current-page detection compares the trimmed pathname to each item's match list.
+// Current-page detection compares the trimmed pathname to each item's match.
 // Mobile collapses to a single row of text links — no hamburger.
 const items = [
-  { label: '~', href: '/', match: ['/'] },
-  { label: 'Projects', href: '/projects/', match: ['/projects', '/projects/'] },
-  { label: 'Writing', href: '/blog/', match: ['/blog', '/blog/'] },
-  { label: 'Now', href: '/now/', match: ['/now', '/now/'] },
-  { label: 'About', href: '/about/', match: ['/about', '/about/'] },
+  { label: '~', href: '/', match: '/' },
+  { label: 'Projects', href: '/projects/', match: '/projects' },
+  { label: 'Writing', href: '/blog/', match: '/blog' },
+  { label: 'Now', href: '/now/', match: '/now' },
+  { label: 'About', href: '/about/', match: '/about' },
 ] as const;
 
 // Normalize: ensure leading slash, strip trailing slash except for root.
-const raw = Astro.url.pathname;
-const normalized = raw.length > 1 && raw.endsWith('/') ? raw.slice(0, -1) : raw;
+// Centralized here so item `match` strings can be the canonical no-slash
+// form (`/blog`) and we never need to spell out both variants per item.
+function trimSlash(p: string): string {
+  return p.length > 1 && p.endsWith('/') ? p.slice(0, -1) : p;
+}
+const currentPath = trimSlash(Astro.url.pathname);
 
-function isCurrent(match: readonly string[]) {
+function isCurrent(match: string) {
   // For non-root items, also match nested routes (e.g. /blog/foo → Writing).
-  return match.some((m) => {
-    const mNorm = m.length > 1 && m.endsWith('/') ? m.slice(0, -1) : m;
-    if (mNorm === '/') return normalized === '/';
-    return normalized === mNorm || normalized.startsWith(mNorm + '/');
-  });
+  const m = trimSlash(match);
+  if (m === '/') return currentPath === '/';
+  return currentPath === m || currentPath.startsWith(m + '/');
 }
 ---
 <nav aria-label="Primary" class="mb-12 flex flex-wrap items-center justify-between gap-4 font-mono text-sm">

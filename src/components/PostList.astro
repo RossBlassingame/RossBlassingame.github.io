@@ -1,28 +1,22 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { formatPostDate, isoDate } from '../lib/date';
 
 // Renders a list of blog posts with date + title + optional description.
 // Date uses <time datetime> for machine-readable semantics; surface
-// formatting is "Mon DD, YYYY" in mono to read as metadata.
+// formatting comes from the shared `formatPostDate` helper so list and
+// detail views always agree.
+//
+// `as` controls the heading level for each post title. Default `h2` is
+// correct on a standalone index page (where the page <h1> sits above us).
+// Pass `as="h3"` when this list is rendered inside a `<Section>` whose
+// kicker is already `<h2>` (e.g. on the homepage), so the outline goes
+// h1 → h2 (Section) → h3 (post titles) without skipping.
 export interface Props {
   posts: CollectionEntry<'posts'>[];
+  as?: 'h2' | 'h3';
 }
-const { posts } = Astro.props;
-
-// Format in UTC so a frontmatter date like `2026-05-15` always renders as
-// "May 15" regardless of the builder's local timezone (otherwise UTC midnight
-// drifts back a day in negative-offset zones like MDT).
-const fmt = new Intl.DateTimeFormat('en-US', {
-  year: 'numeric',
-  month: 'short',
-  day: '2-digit',
-  timeZone: 'UTC',
-});
-
-function isoDate(d: Date): string {
-  // Output YYYY-MM-DD for the datetime attribute.
-  return d.toISOString().slice(0, 10);
-}
+const { posts, as: HeadingTag = 'h2' } = Astro.props;
 ---
 {posts.length === 0 ? (
   <p class="text-[var(--color-muted)]">No posts yet.</p>
@@ -39,11 +33,11 @@ function isoDate(d: Date): string {
               datetime={isoDate(post.data.date)}
               class="block font-mono text-xs uppercase tracking-wider text-[var(--color-muted)]"
             >
-              {fmt.format(post.data.date)}
+              {formatPostDate(post.data.date)}
             </time>
-            <h3 class="mt-1 text-lg font-semibold tracking-tight text-[var(--color-fg)] transition-colors group-hover:text-[var(--color-accent)]">
+            <HeadingTag class="mt-1 text-lg font-semibold tracking-tight text-[var(--color-fg)] transition-colors group-hover:text-[var(--color-accent)]">
               {post.data.title}
-            </h3>
+            </HeadingTag>
           </a>
           {post.data.description && (
             <p class="mt-1 text-[var(--color-muted)] leading-relaxed">

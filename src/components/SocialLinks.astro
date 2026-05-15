@@ -2,10 +2,18 @@
 // Inline SVG social icons. Sized via the `size` prop (default 18).
 // Inline SVG is intentional: zero JS, zero font/icon-set dependency,
 // crisp at any size, and we only need four icons.
+//
+// Display utility ownership: this component does NOT set `flex` /
+// `block` / `grid` etc. on its wrapper. Layout is the consumer's
+// responsibility — pass it via `class` (e.g. `flex` in Nav,
+// `hidden sm:flex` to hide on mobile). The base classes here only
+// describe alignment and gap, which apply once a flex/grid context
+// is established by the consumer.
 export interface Props {
   /** Icon size in px (used for both width + height). */
   size?: number;
-  /** Optional class to merge with the wrapper. */
+  /** Optional class to merge with the wrapper. Consumer should set the
+   *  display utility (`flex`, `inline-flex`, `hidden sm:flex`, ...). */
   class?: string;
 }
 const { size = 18, class: className } = Astro.props;
@@ -17,14 +25,14 @@ const links = [
   { label: 'Stack Overflow', href: 'https://stackoverflow.com/users/4767057/robl', icon: 'stackoverflow' },
 ] as const;
 ---
-<ul class:list={['flex items-center gap-3', className]}>
+<ul class:list={['items-center gap-3', className]}>
   {links.map(({ label, href, icon }) => (
     <li>
       <a
         href={href}
         rel="me noopener noreferrer"
         target="_blank"
-        aria-label={label}
+        aria-label={`${label} (opens in new tab)`}
         class="inline-flex text-[var(--color-muted)] transition-opacity hover:opacity-100 hover:text-[var(--color-fg)] opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] rounded"
       >
         {icon === 'github' && (

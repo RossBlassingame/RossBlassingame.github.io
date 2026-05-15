@@ -4,10 +4,16 @@ import Base from '../layouts/Base.astro';
 // `updated` is computed at build time. The site rebuilds on every push,
 // so this label tracks the most recent deploy without hand-editing.
 // To freeze it (e.g. quarterly cadence), replace this with a literal string.
-const updated = new Date().toLocaleString('en-US', {
+//
+// Format and ISO both run in UTC so the label doesn't flip months on a
+// late-evening MDT build that's already the next day in UTC.
+const now = new Date();
+const monthYearLabel = now.toLocaleDateString('en-US', {
   month: 'long',
   year: 'numeric',
+  timeZone: 'UTC',
 });
+const monthYearISO = now.toISOString().slice(0, 7); // YYYY-MM
 ---
 <Base
   title="Now — Ross Blassingame"
@@ -16,7 +22,7 @@ const updated = new Date().toLocaleString('en-US', {
   <header>
     <h1 class="text-4xl font-semibold tracking-tight">Now</h1>
     <p class="mt-2 font-mono text-xs uppercase tracking-wider text-[var(--color-muted)]">
-      <em>Updated {updated}.</em>
+      <em>Updated <time datetime={monthYearISO}>{monthYearLabel}</time>.</em>
     </p>
   </header>
 

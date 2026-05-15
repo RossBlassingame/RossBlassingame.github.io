@@ -1,19 +1,26 @@
 ---
 // A single project entry: title, year range, summary, tech tag list.
 // Year range and tags use mono so they read as metadata, not body copy.
+//
+// `as` controls the heading level for the title. Default `h2` is correct
+// on a standalone index page (where the page <h1> sits above us). Pass
+// `as="h3"` when this card is rendered inside a `<Section>` whose kicker
+// is already `<h2>` (e.g. on the homepage), so the outline goes
+// h1 → h2 (Section) → h3 (card title) without skipping.
 export interface Props {
   title: string;
   years: string;
   summary: string;
   tags: readonly string[];
+  as?: 'h2' | 'h3';
 }
-const { title, years, summary, tags } = Astro.props;
+const { title, years, summary, tags, as: HeadingTag = 'h2' } = Astro.props;
 ---
 <article class="border-t border-[var(--color-border)] py-6 first:border-t-0 first:pt-0">
   <header class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-    <h3 class="text-lg font-semibold tracking-tight text-[var(--color-fg)]">
+    <HeadingTag class="text-lg font-semibold tracking-tight text-[var(--color-fg)]">
       {title}
-    </h3>
+    </HeadingTag>
     <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-muted)]">
       {years}
     </span>
@@ -21,7 +28,7 @@ const { title, years, summary, tags } = Astro.props;
   <p class="mt-2 text-[var(--color-fg)]/90 leading-relaxed">{summary}</p>
   {tags.length > 0 && (
     <ul class="mt-3 flex flex-wrap gap-x-2 gap-y-1 font-mono text-xs text-[var(--color-muted)]">
-      {tags.map((tag) => (
+      {tags.map((tag: string) => (
         <li class="rounded border border-[var(--color-border)] px-2 py-0.5">{tag}</li>
       ))}
     </ul>

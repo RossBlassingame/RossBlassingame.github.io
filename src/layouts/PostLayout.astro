@@ -1,0 +1,48 @@
+---
+import Base from './Base.astro';
+
+// Layout used for individual blog post pages. Wraps the rendered MDX
+// in a `prose` block (Tailwind Typography) so headings/lists/code blocks
+// inherit consistent styling, and prepends a header with title + date.
+export interface Props {
+  title: string;
+  description?: string;
+  date: Date;
+}
+const { title, description, date } = Astro.props;
+
+// Format in UTC for the same reason as PostList: avoid timezone drift
+// turning `2026-05-15` into "May 14" when the builder is in a negative-offset
+// zone.
+const fmt = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: '2-digit',
+  timeZone: 'UTC',
+});
+const isoDate = date.toISOString().slice(0, 10);
+---
+<Base title={`${title} — Ross Blassingame`} description={description}>
+  <article>
+    <header class="mb-8">
+      <time
+        datetime={isoDate}
+        class="block font-mono text-xs uppercase tracking-wider text-[var(--color-muted)]"
+      >
+        {fmt.format(date)}
+      </time>
+      <h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h1>
+    </header>
+    <div class="prose prose-invert prose-headings:tracking-tight prose-a:text-[var(--color-accent)] prose-a:no-underline hover:prose-a:underline prose-code:font-mono prose-pre:rounded-md prose-pre:border prose-pre:border-[var(--color-border)] max-w-none">
+      <slot />
+    </div>
+    <p class="mt-12 font-mono text-xs text-[var(--color-muted)]">
+      <a
+        href="/blog/"
+        class="hover:text-[var(--color-fg)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] rounded-sm"
+      >
+        ← all writing
+      </a>
+    </p>
+  </article>
+</Base>

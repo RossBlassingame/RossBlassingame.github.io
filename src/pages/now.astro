@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+
+// `updated` is computed at build time. The site rebuilds on every push,
+// so this label tracks the most recent deploy without hand-editing.
+// To freeze it (e.g. quarterly cadence), replace this with a literal string.
+const updated = new Date().toLocaleString('en-US', {
+  month: 'long',
+  year: 'numeric',
+});
+---
+<Base
+  title="Now — Ross Blassingame"
+  description="What Ross Blassingame is focused on right now."
+>
+  <header>
+    <h1 class="text-4xl font-semibold tracking-tight">Now</h1>
+    <p class="mt-2 font-mono text-xs uppercase tracking-wider text-[var(--color-muted)]">
+      <em>Updated {updated}.</em>
+    </p>
+  </header>
+
+  <section class="mt-8 flex flex-col gap-6 text-[var(--color-fg)]/90 leading-relaxed">
+    <div>
+      <h2 class="font-semibold tracking-tight text-[var(--color-fg)]">Working on</h2>
+      <p class="mt-1">
+        Device Metrics at Amazon — leading the developer-experience pillar (console modernization, control plane API rearchitecture, IDE integration) and shipping AI tooling that the broader org uses day to day.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="font-semibold tracking-tight text-[var(--color-fg)]">Training for</h2>
+      <p class="mt-1">
+        My next marathon. Logging miles around Denver and the Front Range.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="font-semibold tracking-tight text-[var(--color-fg)]">Outside</h2>
+      <p class="mt-1">
+        Fourteener season is starting up — sitting at 30, picking targets for summer. Trout streams open on the Western Slope; archery elk season later in the fall.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="font-semibold tracking-tight text-[var(--color-fg)]">Reading</h2>
+      <p class="mt-1">
+        Mixing technical (distributed systems, ML systems papers) with non-fiction. Always open to recommendations.
+      </p>
+    </div>
+  </section>
+
+  <p class="mt-12 font-mono text-xs text-[var(--color-muted)] leading-relaxed">
+    This is a
+    <a
+      href="https://nownownow.com/about"
+      rel="noopener noreferrer"
+      target="_blank"
+      class="hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] rounded-sm"
+    >
+      now page
+    </a>, updated quarterly-ish.
+  </p>
+</Base>

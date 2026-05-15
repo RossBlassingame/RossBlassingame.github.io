@@ -1,0 +1,57 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+// Renders a list of blog posts with date + title + optional description.
+// Date uses <time datetime> for machine-readable semantics; surface
+// formatting is "Mon DD, YYYY" in mono to read as metadata.
+export interface Props {
+  posts: CollectionEntry<'posts'>[];
+}
+const { posts } = Astro.props;
+
+// Format in UTC so a frontmatter date like `2026-05-15` always renders as
+// "May 15" regardless of the builder's local timezone (otherwise UTC midnight
+// drifts back a day in negative-offset zones like MDT).
+const fmt = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: '2-digit',
+  timeZone: 'UTC',
+});
+
+function isoDate(d: Date): string {
+  // Output YYYY-MM-DD for the datetime attribute.
+  return d.toISOString().slice(0, 10);
+}
+---
+{posts.length === 0 ? (
+  <p class="text-[var(--color-muted)]">No posts yet.</p>
+) : (
+  <ul class="flex flex-col gap-6">
+    {posts.map((post) => (
+      <li>
+        <article>
+          <a
+            href={`/blog/${post.id}/`}
+            class="group inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] rounded-sm"
+          >
+            <time
+              datetime={isoDate(post.data.date)}
+              class="block font-mono text-xs uppercase tracking-wider text-[var(--color-muted)]"
+            >
+              {fmt.format(post.data.date)}
+            </time>
+            <h3 class="mt-1 text-lg font-semibold tracking-tight text-[var(--color-fg)] transition-colors group-hover:text-[var(--color-accent)]">
+              {post.data.title}
+            </h3>
+          </a>
+          {post.data.description && (
+            <p class="mt-1 text-[var(--color-muted)] leading-relaxed">
+              {post.data.description}
+            </p>
+          )}
+        </article>
+      </li>
+    ))}
+  </ul>
+)}

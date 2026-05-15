@@ -1,0 +1,31 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import PostLayout from '../../layouts/PostLayout.astro';
+
+// Static-build one route per (non-draft) post. Astro 5 + glob-loader pattern:
+// `params: { slug: post.id }` → route is `/blog/<id>/`.
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+};
+
+// Astro auto-binds `Astro.props` to a `Props` interface declared here.
+// Without this, dynamic-route props are typed `unknown`.
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<PostLayout
+  title={post.data.title}
+  description={post.data.description}
+  date={post.data.date}
+>
+  <Content />
+</PostLayout>

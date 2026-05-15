@@ -1,0 +1,51 @@
+---
+import SocialLinks from './SocialLinks.astro';
+
+// Top-of-page nav. Mono font for a typographic SWE accent.
+// Current-page detection compares the trimmed pathname to each item's match list.
+// Mobile collapses to a single row of text links — no hamburger.
+const items = [
+  { label: '~', href: '/', match: ['/'] },
+  { label: 'Projects', href: '/projects/', match: ['/projects', '/projects/'] },
+  { label: 'Writing', href: '/blog/', match: ['/blog', '/blog/'] },
+  { label: 'Now', href: '/now/', match: ['/now', '/now/'] },
+  { label: 'About', href: '/about/', match: ['/about', '/about/'] },
+] as const;
+
+// Normalize: ensure leading slash, strip trailing slash except for root.
+const raw = Astro.url.pathname;
+const normalized = raw.length > 1 && raw.endsWith('/') ? raw.slice(0, -1) : raw;
+
+function isCurrent(match: readonly string[]) {
+  // For non-root items, also match nested routes (e.g. /blog/foo → Writing).
+  return match.some((m) => {
+    const mNorm = m.length > 1 && m.endsWith('/') ? m.slice(0, -1) : m;
+    if (mNorm === '/') return normalized === '/';
+    return normalized === mNorm || normalized.startsWith(mNorm + '/');
+  });
+}
+---
+<nav aria-label="Primary" class="mb-12 flex flex-wrap items-center justify-between gap-4 font-mono text-sm">
+  <ul class="flex flex-wrap items-center gap-x-5 gap-y-2">
+    {items.map(({ label, href, match }) => {
+      const current = isCurrent(match);
+      return (
+        <li>
+          <a
+            href={href}
+            aria-current={current ? 'page' : undefined}
+            class:list={[
+              'inline-block py-1 transition-opacity hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] rounded-sm',
+              current
+                ? 'text-[var(--color-accent)]'
+                : 'text-[var(--color-muted)] opacity-90 hover:text-[var(--color-fg)]',
+            ]}
+          >
+            {label}
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+  <SocialLinks size={16} class="hidden sm:flex" />
+</nav>

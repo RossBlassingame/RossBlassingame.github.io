@@ -1,0 +1,31 @@
+---
+// Small homepage section wrapper: a mono "kicker" heading plus
+// optional "see more" link, with the section content as a slot.
+// Keeps homepage markup readable and consistent across sections.
+export interface Props {
+  title: string;
+  /** Optional link to a fuller page (e.g., /projects/). */
+  href?: string;
+  /** Visible text for the link (default: "view all"). */
+  linkLabel?: string;
+}
+const { title, href, linkLabel = 'view all' } = Astro.props;
+---
+<section class="mt-12">
+  <header class="mb-4 flex items-baseline justify-between gap-4">
+    <h2 class="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-muted)]">
+      {title}
+    </h2>
+    {href && (
+      <a
+        href={href}
+        class="font-mono text-xs uppercase tracking-wider text-[var(--color-muted)] hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] rounded-sm"
+      >
+        {linkLabel} →
+      </a>
+    )}
+  </header>
+  <div>
+    <slot />
+  </div>
+</section>

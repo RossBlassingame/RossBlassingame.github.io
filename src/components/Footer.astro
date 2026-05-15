@@ -1,0 +1,21 @@
+---
+import SocialLinks from './SocialLinks.astro';
+
+// Footer is intentionally minimal: copyright (auto-updating year),
+// social row for mobile (where the nav-bar copy is hidden), and an RSS link.
+const year = new Date().getFullYear();
+---
+<footer class="mt-20 border-t border-[var(--color-border)] pt-6 pb-2 font-mono text-xs text-[var(--color-muted)]">
+  <div class="flex flex-wrap items-center justify-between gap-4">
+    <p>© {year} Ross Blassingame</p>
+    <div class="flex items-center gap-4">
+      <a
+        href="/rss.xml"
+        class="hover:text-[var(--color-fg)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] rounded-sm"
+      >
+        rss
+      </a>
+      <SocialLinks size={14} class="sm:hidden" />
+    </div>
+  </div>
+</footer>

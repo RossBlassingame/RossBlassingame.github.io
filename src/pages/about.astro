@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+
+// Experience timeline as data so the markup stays focused on
+// presentation. Keeping role/company/dates structured also makes
+// it easier to lift this into JSON-LD later if we want richer SEO.
+interface Role {
+  company: string;
+  title: string;
+  location: string;
+  dates: string;
+  summary: string;
+}
+
+const roles: readonly Role[] = [
+  {
+    company: 'Amazon',
+    title: 'Software Development Engineer, Device Metrics',
+    location: 'Denver, CO',
+    dates: 'Sep 2025 – Present',
+    summary:
+      'Device telemetry infrastructure: identity resolution, runtime schema management, AI-powered query interfaces, and developer-experience tooling.',
+  },
+  {
+    company: 'Amazon',
+    title: 'Software Development Engineer, Privacy & Consent Tooling',
+    location: 'Denver, CO',
+    dates: 'Oct 2021 – Sep 2025',
+    summary:
+      'Led the PaCT framework: cross-platform consent engine deployed to 200M+ Fire TV devices on FireOS, AOSP 14/15, and a new Amazon OS.',
+  },
+  {
+    company: 'Charles Schwab',
+    title: 'Software Engineer (Intern → SDE III)',
+    location: 'Lone Tree, CO',
+    dates: 'Jul 2017 – Oct 2021',
+    summary:
+      'Full-stack document retrieval app (Angular + .NET Core), then maintained and enhanced the Schwab Intelligent Portfolios robo-advisor platform.',
+  },
+];
+---
+<Base
+  title="About — Ross Blassingame"
+  description="Bio and experience timeline for Ross Blassingame, software engineer at Amazon in Denver."
+>
+  <header>
+    <h1 class="text-4xl font-semibold tracking-tight">About</h1>
+  </header>
+
+  <div class="mt-8 flex flex-col gap-5 text-[var(--color-fg)]/90 leading-relaxed">
+    <p>
+      I'm currently a Software Development Engineer at Amazon in Denver on the Device Metrics team (since September 2025), where I work on telemetry infrastructure for Fire TV and other Amazon devices — most recently a device-identity resolution layer for a metrics ingestion pipeline handling 5.8M batches/sec and 10T+ metrics/day, and an AI-powered natural-language interface for querying telemetry across Redshift, DynamoDB, and Athena.
+    </p>
+    <p>
+      Before that I spent four years (October 2021 to September 2025) on Amazon's Privacy &amp; Consent Tooling team, where I led the design and rollout of the PaCT framework — the consent engine running across 200M+ Fire TV devices on FireOS, AOSP 14/15, and a new Amazon-internal OS. That work involved a lot of cross-platform plumbing: Soong build customizations, write-once-deploy-everywhere artifact generation, and boot-time constraint workarounds.
+    </p>
+    <p>
+      Earlier (2017–2021) I was at Charles Schwab, progressing from intern to SDE III across two teams — a full-stack document retrieval app (Angular + .NET Core + SQL with CI/CD) and the Schwab Intelligent Portfolios robo-advisor platform.
+    </p>
+    <p>
+      I have a BS in Computer Science from CU Boulder (2018). When I'm not at a keyboard I'm probably outside — 30 fourteeners climbed and counting, currently in a marathon training cycle, plus hunting and fishing seasons. Indoors: lifting, reading, the occasional PS5 binge.
+    </p>
+  </div>
+
+  <Section title="Experience">
+    <ol class="flex flex-col">
+      {roles.map((role) => (
+        <li class="border-t border-[var(--color-border)] py-5 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <h3 class="text-base font-semibold tracking-tight text-[var(--color-fg)]">
+              {role.company} <span class="text-[var(--color-muted)] font-normal">— {role.title}</span>
+            </h3>
+            <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-muted)]">
+              {role.dates}
+            </span>
+          </div>
+          <p class="mt-1 font-mono text-xs text-[var(--color-muted)]">{role.location}</p>
+          <p class="mt-2 text-[var(--color-fg)]/90 leading-relaxed">{role.summary}</p>
+        </li>
+      ))}
+    </ol>
+  </Section>
+
+  <Section title="Education">
+    <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+      <h3 class="text-base font-semibold tracking-tight text-[var(--color-fg)]">
+        University of Colorado Boulder
+        <span class="text-[var(--color-muted)] font-normal">— BS, Computer Science</span>
+      </h3>
+      <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-muted)]">May 2018</span>
+    </div>
+  </Section>
+</Base>

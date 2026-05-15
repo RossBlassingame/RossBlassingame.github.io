@@ -1,0 +1,53 @@
+---
+// Inline SVG social icons. Sized via the `size` prop (default 18).
+// Inline SVG is intentional: zero JS, zero font/icon-set dependency,
+// crisp at any size, and we only need four icons.
+export interface Props {
+  /** Icon size in px (used for both width + height). */
+  size?: number;
+  /** Optional class to merge with the wrapper. */
+  class?: string;
+}
+const { size = 18, class: className } = Astro.props;
+
+const links = [
+  { label: 'GitHub', href: 'https://github.com/RossBlassingame', icon: 'github' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/rossblassingame', icon: 'linkedin' },
+  { label: 'Twitter / X', href: 'https://twitter.com/rossblassingame', icon: 'x' },
+  { label: 'Stack Overflow', href: 'https://stackoverflow.com/users/4767057/robl', icon: 'stackoverflow' },
+] as const;
+---
+<ul class:list={['flex items-center gap-3', className]}>
+  {links.map(({ label, href, icon }) => (
+    <li>
+      <a
+        href={href}
+        rel="me noopener noreferrer"
+        target="_blank"
+        aria-label={label}
+        class="inline-flex text-[var(--color-muted)] transition-opacity hover:opacity-100 hover:text-[var(--color-fg)] opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] rounded"
+      >
+        {icon === 'github' && (
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={size} height={size} fill="currentColor" aria-hidden="true">
+            <path d="M12 .5C5.73.5.86 5.37.86 11.64c0 4.93 3.2 9.1 7.63 10.58.56.1.77-.24.77-.54 0-.27-.01-.97-.02-1.9-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.43-2.21 1.14-2.99-.11-.28-.49-1.41.11-2.94 0 0 .94-.3 3.07 1.14a10.6 10.6 0 0 1 5.6 0c2.13-1.44 3.07-1.14 3.07-1.14.6 1.53.22 2.66.11 2.94.71.78 1.14 1.77 1.14 2.99 0 4.29-2.61 5.23-5.1 5.51.4.34.76 1.02.76 2.06 0 1.49-.01 2.69-.01 3.06 0 .3.2.65.78.54 4.42-1.48 7.62-5.65 7.62-10.58C23.14 5.37 18.27.5 12 .5Z" />
+          </svg>
+        )}
+        {icon === 'linkedin' && (
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={size} height={size} fill="currentColor" aria-hidden="true">
+            <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z" />
+          </svg>
+        )}
+        {icon === 'x' && (
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={size} height={size} fill="currentColor" aria-hidden="true">
+            <path d="M18.244 2H21.5l-7.5 8.57L23 22h-6.81l-5.34-6.98L4.78 22H1.52l8.02-9.16L1 2h6.91l4.83 6.39L18.244 2Zm-2.39 18h1.83L7.27 4H5.31l10.54 16Z" />
+          </svg>
+        )}
+        {icon === 'stackoverflow' && (
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={size} height={size} fill="currentColor" aria-hidden="true">
+            <path d="M17.36 20.2v-5.38h1.79V22H3v-7.18h1.8v5.38h12.56ZM6.77 14.32l8.78 1.83.37-1.76-8.78-1.83-.37 1.76Zm1.16-4.21 8.13 3.79.76-1.62-8.13-3.8-.76 1.63Zm2.25-4 6.88 5.74 1.15-1.38-6.88-5.74-1.15 1.38ZM14.61 0l-1.45 1.08 5.34 7.19 1.45-1.08L14.61 0ZM6.59 18.41h8.97v-1.8H6.59v1.8Z" />
+          </svg>
+        )}
+      </a>
+    </li>
+  ))}
+</ul>

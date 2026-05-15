@@ -1,0 +1,45 @@
+---
+import '../styles/global.css';
+export interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+const {
+  title,
+  description = 'Ross Blassingame — Software engineer in Denver.',
+  ogImage = '/og-default.png',
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title={title} href="/rss.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site).toString()} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body class="mx-auto max-w-2xl px-6 py-12 sm:py-20">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-[var(--color-accent)] focus:px-3 focus:py-2 focus:text-[var(--color-bg)]"
+    >
+      Skip to content
+    </a>
+    <main id="main">
+      <slot />
+    </main>
+  </body>
+</html>
